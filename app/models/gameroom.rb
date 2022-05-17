@@ -1,3 +1,3 @@
 class Gameroom < ApplicationRecord
-  has_many :moves
+  has_many :moves, dependent: :destroy
 end

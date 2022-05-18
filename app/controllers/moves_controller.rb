@@ -1,7 +1,7 @@
 class MovesController < ApplicationController
 
   def create
-    @gameroom = Gameroom.find(params[:gameroom_id])
+    @gameroom = Gameroom.find_by(name: params[:gameroom_name])
     @move = Move.new(moves_params)
     @move.gameroom = @gameroom
     if @move.save

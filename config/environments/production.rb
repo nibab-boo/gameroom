@@ -12,6 +12,8 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.web_socket_server_url = 'wss://game-room-center.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = ['https://game-room-center.herokuapp.com', 'http://game-room-center.herokuapp.com']
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
 

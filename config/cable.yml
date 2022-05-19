@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redistogo-graceful-09767
+  url: redis://redistogo:112ea53f1d72706cc5427d83cdf74dc9@crestfish.redistogo.com:11993/
   # channel_prefix: game_room_production

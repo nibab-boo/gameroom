@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Backend for [Tic-Tac-Toe](https://github.com/nibab-boo/tic-tac-toe-typescript)
 
-Things you may want to cover:
+This project sole purpose is to act as a backend and stream to online version of tic-tac-toe.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In the project directory, you can run this code to run locally.
+### `rails s`

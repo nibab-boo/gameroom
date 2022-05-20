@@ -1,8 +1,4 @@
 class GameroomsController < ApplicationController
-  def show
-    @gameroom = Gameroom.find(params[:id])
-    render json: @gameroom
-  end
 
   def create
     @gameroom = Gameroom.new(gameroom_params)
@@ -11,6 +7,18 @@ class GameroomsController < ApplicationController
     else
       render json: "Error", status: :error
     end
+  end
+
+  def destroy
+    @gameroom = Gameroom.where(name: params[:id]).first
+    if @gameroom
+      GameroomChannel.broadcast_to(
+        @gameroom,
+        { status: "destroy" }
+      )
+      @gameroom.destroy
+    end
+    head :ok
   end
 
   private

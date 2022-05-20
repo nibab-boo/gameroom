@@ -30,6 +30,17 @@ class GameroomsController < ApplicationController
     head :ok
   end
 
+  def reset
+    @gameroom = Gameroom.where(name: params[:id]).first
+    if @gameroom
+      GameroomChannel.broadcast_to(
+        @gameroom,
+        { status: "reset" }
+      )
+    end
+    head :ok
+  end
+
   private
 
   def gameroom_params

@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     resources :moves, only: [:index, :create]
   end
   mount ActionCable.server => '/cable'
+
+  get '/gamerooms/:id/reset', to: "gamerooms#reset"
 end

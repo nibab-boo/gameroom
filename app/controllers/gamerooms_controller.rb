@@ -3,9 +3,9 @@ class GameroomsController < ApplicationController
   def create
     @gameroom = Gameroom.new(gameroom_params)
     if @gameroom.save
-      render json: @gameroom  
+      render json: { status: "created", gameroom_name: @gameroom.name }, status: :created
     else
-      render json: "Error", status: :error
+      render json: {status: "error", error_msg: @gameroom.errors.full_messages }, status: :not_acceptable
     end
   end
 
@@ -24,6 +24,6 @@ class GameroomsController < ApplicationController
   private
 
   def gameroom_params
-    params.require(:gameroom).permit(:content)
+    params.require(:gameroom).permit(:name)
   end
 end

@@ -1,5 +1,14 @@
 class GameroomsController < ApplicationController
 
+  def show
+    @gameroom = Gameroom.where(name: params[:id]).first
+    if @gameroom
+      render status: :found
+    else
+      render status: :not_found
+    end
+  end
+
   def create
     @gameroom = Gameroom.new(gameroom_params)
     if @gameroom.save
